@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 
-{% block title %} BOOKS PAGE {% endblock %}
+{% block title %} {{ book["title"] }} {% endblock %}
 
 {% block content %}
-<h1>This is Books page</h1>
+<a href="/" class="nav-link"></a>
+<h1>Details about {{ book["title"] }}</h1>
+<hr>
 <div class="row">
-    {% for book in books %}
     <div class="col">
         <div class="card" style="width: 18rem;">
             <img src="/static/images/{{ book['img'] }}" class="card-img-top" alt="Book Cover Image">
             <div class="card-body">
                 <h5 class="card-title">{{ book["title"] }}</h5>
+                <p class="card-text">{{ book["description"] }}</p>
                 <p class="card-text">{{ book["rating"] }}</p>
-                <a href="/book/{{ book['id'] }}" class="btn btn-primary">See details</a>
             </div>
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
